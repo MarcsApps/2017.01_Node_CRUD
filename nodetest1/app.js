@@ -1,3 +1,5 @@
+// whenever you change a js file, such as app.js or the route files, you'll need to restart to see changes.
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
