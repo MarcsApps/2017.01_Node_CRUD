@@ -10,6 +10,12 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+// New Code
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/nodetest1');
+
+
 var app = express();      //-+ This instatiates express, assigns our app variable to it...
 
 //-=--------------------------------------------------------------------------------------------------This stuff tess app where to find views, engine to render with (jade), and some methods
@@ -25,6 +31,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));//-=--------------------------------------------Stattic pages from here (/public) but rewrite url to top path  
+
+// New Code
+// Make our db accessible to our router
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
+
 app.use('/', index);
 app.use('/users', users);
 

@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1.
+        Med Log
+    ul
+        each log, i in medlog
+            li #{i}  #{log.Med}    #{log.Date}    #{log.Time}
+
+    table
+        tbody
+            each logi, i in medlog
+                tr
+                    td  #{i}
+                    td  #{logi.Med}
+                    td  #{logi.Date}
+                    td  #{logi.Time}
