@@ -1,5 +1,10 @@
 ### Steps Taken in Project, from Scratch to create and mod a default express-generator project.
 ### Created 1/2017 but based on 2015updated2013 tutorial so uses some older versions. 
+
+### Shortcuts for finished: RUN THESE TWO LINES THEN GO TO WEB ADDR>
+### Run mongo from C:\Program Files\MongoDB\Server\3.4\bin run npm start in nodetest1
+        mongod --dbpath C:\Users\marca\Documents\www\2017.01_Node_CRUD\nodetest1\data
+        npm start
 Based first on Christopher Buecheler's tutorial here: http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
 
 Uses express generator (npm install -g express-generator) to install a skeleton of:
@@ -90,17 +95,36 @@ Steps:
 17. Stop server. CNTL-C cmd window, npm start.
     If see error cannot find module ..../Relase/bson] .... and later js-bson: Failed to load C++ (follow Buecheler's tutorial instrustions at bottom.)
 18. go localhost:3000/medlog
+### Setup Post
+19. Create Data Input... /routes/index.js  add a router get for addmed
+        /* GET Add (New) med page. */
+        router.get('/addmed', function(req, res) {
+            res.render('addmed', { title: 'Add med' });
+        }); 
+20. Create Jade Template in views/addmed.jade
+21. Add new route to index.js for the Add to DB fucntion, recieve POST / addmed
+    This is detailed to see doc at /* POST TO ADD NEW MED SERVICE */
+22. Stop/Restart npm start
+---The end of his tutorial.
 
 
 
 
 
 
+### nodemon ...auto restart after edits to .js files of node... (err npm start)
+npm install -g nodemon
+
+Edited package.json: node ==> nodemon
+    "start": "node ./bin/www"
+### WILL WANT TO REMOVE THIS FROM PRODUCTION I GUESS! 
+TODO
 
 
-
-
-
+TODO 
+### Change to mdbLab Online?
+    just note change app.js instead of localhost use var db = monk('127.0.0.1:27017/nodetest1'); 
+    change to actual url... and search any other ref localhost
 
 
 ### Data for medlogcollection

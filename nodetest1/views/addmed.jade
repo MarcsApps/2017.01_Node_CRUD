@@ -1,0 +1,18 @@
+extends layout
+
+-var d = new Date().toLocaleDateString();
+-var t = new Date().toLocaleTimeString(); 
+-function dd(){`" ${d}"`};
+block content
+    h1= title
+    form#formAddMed(name="addmed",method="post",action="/addmed")
+        input#inputMedName(list="meds", placeholder="Medname", name="Med")
+        <datalist id="meds">
+        <option value="Gabapentin">
+        <option value="Tramadol">
+        <option value="Robicoxib">
+        <option value="Meloxicam">
+        </datalist>
+        input#inputDate(type="text", value= new Date().toLocaleDateString(), readonly=true, name="Date")
+        input#inputTime(type="text", value=new Date().toLocaleTimeString(), readonly=true, name="Time")
+        button#btnSubmit(type="submit") submit
