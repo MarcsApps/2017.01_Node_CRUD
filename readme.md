@@ -60,14 +60,17 @@ Uses express generator (npm install -g express-generator) to install a skeleton 
             });
     Added View helloworld.jade to /views (cloned index.jade, text hello world edit.)
 
+
 ## Setting Up / Running Mongod and Mongo
 7.      mkdir data
 8.      Run Mongod 
 Start server:
       ```C:\Program Files\MongoDB\Server\3.4\bin```
   
+
  (or wherever MongoDB is installed in windows.)
 ```mongod --dbpath C:\Users\marca\Documents\www\2017.01_Node_CRUD\nodetest1\data```
+
 
 [Will see intial setup if first run.] 
 
@@ -142,7 +145,7 @@ Start server:
         router.get('/addmed', function(req, res) {
             res.render('addmed', { title: 'Add med' });
         }); 
-        
+
 20. Create Jade Template in views/addmed.jade
 21. Add new route to index.js for the Add to DB fucntion, recieve POST / addmed
     This is detailed to see doc at /* POST TO ADD NEW MED SERVICE */
