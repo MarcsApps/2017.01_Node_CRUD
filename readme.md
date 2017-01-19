@@ -1,49 +1,55 @@
-### Scroll to start Of RESTFUL API Steps below, marked by ===REST=== blocks.
+# RESTful API Mongo, Node, Express, Jade, Monk...
+## Start Of RESTFUL API version is at end, scroll down.
 
 ### Steps Taken in Project, from Scratch to create and mod a default express-generator project.
 ### Created 1/2017 but based on 2015updated2013 tutorial so uses some older versions. 
 
-### Shortcuts for finished: RUN THESE TWO LINES THEN GO TO WEB ADDR>
-### Run mongo from .... run npm start in nodetest1
+#### Shortcuts for finished: RUN THESE TWO LINES THEN GO TO WEB ADDR>
+#### Run mongo from .... run npm start in nodetest1
 // added below to npm start, so it runs both mongo and express server concurrently in own cmd windows, in windows
 //  (set in package.json start)
 //FIXME:  Start script in npm start may not work on non-windows/production...not sure testuser2
+...
         cd C:\Program Files\MongoDB\Server\3.4\bin 
         mongod --dbpath C:\Users\marca\Documents\www\2017.01_Node_CRUD\nodetest1\data
         npm start
-Based first on Christopher Buecheler's tutorial here: http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+        ...
+## Based first on Christopher Buecheler's tutorial here: http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
 
 Uses express generator (npm install -g express-generator) to install a skeleton of:
-     express
-     Jade (Now / soon changing to pug) templating engine uses strict whitespace
-+    MongoDB
++     express
++     Jade (soon pug) templating engine uses strict whitespace
++     MongoDB
 +     Monk (simipler/smaller layer than mongoose js = similar purpose, easier connections, less code vs vanilla mongo )
 
 (+ files added manaully to package.json before nmp install.  Also using old versions to comply with 2013 tutorial in begining.)
 
 Steps: -------------------------------------------------------------------------------------------------------
-### Pre-requisites
+## Pre-requisites
 0. Pre-requisites: ...install node.js & npm.
                    install express 
                    install express-generator npm install -g ...   
-### Generate App Scaffold, Test. [Node, Express, Jade, Mongo, Monk...]
+## Generate App Scaffold, Test. [Node, Express, Jade, Mongo, Monk...]
 1. Generate Project: express nodetest1  (use any name for the project / folderName)
 2. Edit package.json, add lines for mogo and monk:
-        ..."mongodb": "^1.4.4",
-        "monk": "^1.0.1"...
+        ...
+        "mongodb": "^1.4.4",
+        "monk": "^1.0.1"
+        ...
 3. cd nodetest1
 3. npm install (all the dependencies in package.json are installed)
 4. mkdir data
 5. npm start  (This should start listening at //localhost:3000 as set in /bin/www (i think!))
 6. Some simple hello world nonsense.
    Copy the routes/index.js Get route for '/' and change to /helloworld
-     ...###    /* GET hello World page. */                             
+     ...
+            ###    /* GET hello World page. */                             
             router.get('/helloworld', function(req, res, next) {
             res.render('helloworld', { title: 'Hello, World!' });
             });...
 
     Added View helloworld.jade to /views (cloned index.jade, text hello world edit.)
-### Setting Up / Running Mongod and Mongo
+## Setting Up / Running Mongod and Mongo
 7. mkdir data
 8. Run Mongod, (start server):
     C:\Program Files\MongoDB\Server\3.4\bin  (or wherever MongoDB is installed in windows.)
@@ -53,35 +59,40 @@ Steps: -------------------------------------------------------------------------
 9. Run mongo (start mongo shell) [Note not really needed website, for tutorial/learning.]
     In new CMD Consold - cd to mongo installation /bin:
     mongo 
-### Create DB (type into mongo shell)
+## Create DB (type into mongo shell)
 10. use nodetest1  //create db 
-11. ...db.usercollection.insert({ JSON KEY:VALUES for db row/document) })  //enter data
+11. ...
+    db.usercollection.insert({ JSON KEY:VALUES for db row/document) })  //enter data
     db.usercollection.insert({ "Med" : "Tramadol", "Date" : "01/14/2017", "Time" : "01:33AM"})
     db.usercollection.insert({ "Med" : "Gabapentin", "Date" : "01/14/2017", "Time" : "01:33AM"})
     db.usercollection.insert({ "Med" : "Robenacoxib", "Date" : "01/14/2017", "Time" : "01:34AM"})
-    db.usercollection.insert({ "Med" : "Meloxicam", "Date" : "01/14/2017", "Time" : "01:34AM"})...
+    db.usercollection.insert({ "Med" : "Meloxicam", "Date" : "01/14/2017", "Time" : "01:34AM"})
+    ...
 
-    or combine ; or use somehting like this...
+    or combine ; or use somehting like this
+    ...
     newstuff = [{ "username" : "testuser2", "email" : "testuser2@testdomain.com" },
                  { "username" : "testuser3", "email" : "testuser3@testdomain.com" }]
-    db.usercollection.insert(newstuff);
+    db.usercollection.insert(newstuff);...
 
-    ### [I'm breaking from the username/email from the tutorial here.]
+## [I'm breaking from the username/email from the tutorial here.]
 12. List collection data in console:
     db.usercollection.find().pretty() //.pretty() method gives us linebreaks
-###  HOOK MONGO UP TO NODE
+##  HOOK MONGO UP TO NODE
 13. Add connection info to app.js:
     // New Code
+    ...
         var mongo = require('mongodb');
         var monk = require('monk');
-        var db = monk('localhost:27017/nodetest1');
+        var db = monk('localhost:27017/nodetest1');...
 14. Add db to router (insert above the '/' route lines as shown below:)
     [adding db to the route and thus every HTTP req is not best, but quick / dirty method!]
         // Make our db accessible to our router
+        ...
         app.use(function(req,res,next){
             req.db = db;
             next();
-        });
+        });...
             
         app.use('/', index);  //Must be inserted before this
 ### Display Data 
