@@ -89,12 +89,12 @@ Start server:
 
 11\. Enter this in to the db:
 
- ```db.usercollection.insert({ JSON KEY:VALUES for db row/document) })  //enter data
-    db.usercollection.insert({ "Med" : "Tramadol", "Date" : "01/14/2017", "Time" : "01:33AM"})
-    db.usercollection.insert({ "Med" : "Gabapentin", "Date" : "01/14/2017", "Time" : "01:33AM"})
-    db.usercollection.insert({ "Med" : "Robenacoxib", "Date" : "01/14/2017", "Time" : "01:34AM"})
-    db.usercollection.insert({ "Med" : "Meloxicam", "Date" : "01/14/2017", "Time" : "01:34AM"})
-```
+        db.usercollection.insert({ JSON KEY:VALUES for db row/document) })  //enter data
+        db.usercollection.insert({ "Med" : "Tramadol", "Date" : "01/14/2017", "Time" : "01:33AM"})
+        db.usercollection.insert({ "Med" : "Gabapentin", "Date" : "01/14/2017", "Time" : "01:33AM"})
+        db.usercollection.insert({ "Med" : "Robenacoxib", "Date" : "01/14/2017", "Time" : "01:34AM"})
+        db.usercollection.insert({ "Med" : "Meloxicam", "Date" : "01/14/2017", "Time" : "01:34AM"})
+
 
 or combine ; or use somehting like this:
 
