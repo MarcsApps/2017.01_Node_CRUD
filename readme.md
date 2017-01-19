@@ -86,23 +86,27 @@ Start server:
 ## Create DB (type into mongo shell)
 
 10\. ```use nodetest1```  //create db 
-11\. ```db.usercollection.insert({ JSON KEY:VALUES for db row/document) })  //enter data
+
+11\. Enter this in to the db:
+ ```db.usercollection.insert({ JSON KEY:VALUES for db row/document) })  //enter data
     db.usercollection.insert({ "Med" : "Tramadol", "Date" : "01/14/2017", "Time" : "01:33AM"})
     db.usercollection.insert({ "Med" : "Gabapentin", "Date" : "01/14/2017", "Time" : "01:33AM"})
     db.usercollection.insert({ "Med" : "Robenacoxib", "Date" : "01/14/2017", "Time" : "01:34AM"})
     db.usercollection.insert({ "Med" : "Meloxicam", "Date" : "01/14/2017", "Time" : "01:34AM"})
-    ```
+```
 
-    or combine ; or use somehting like this
-    ```newstuff = [{ "username" : "testuser2", "email" : "testuser2@testdomain.com" },
-                 { "username" : "testuser3", "email" : "testuser3@testdomain.com" }]
-    db.usercollection.insert(newstuff);
-    ```
+or combine ; or use somehting like this:
+
+        newstuff = [{ "username" : "testuser2", "email" : "testuser2@testdomain.com" },
+                     { "username" : "testuser3", "email" : "testuser3@testdomain.com" }]
+        db.usercollection.insert(newstuff);
+    
 
 ## [I'm breaking from the username/email from the tutorial here.]
 12\. List collection data in console:
 
-```db.usercollection.find().pretty() //.pretty() method gives us linebreaks```
+        db.usercollection.find().pretty() //.pretty() method gives us linebreaks
+
 ##  HOOK MONGO UP TO NODE
 13\. Add connection info to app.js:
 
@@ -112,7 +116,8 @@ Start server:
         var db = monk('localhost:27017/nodetest1');
         
 14\. Add db to router (insert above the '/' route lines as shown below:)
-    [adding db to the route and thus every HTTP req is not best, but quick / dirty method!]
+
+[adds db to the route, and thus every HTTP req. Is not best, but quick / dirty method!]
     
         // Make our db accessible to our router
         app.use(function(req,res,next){
@@ -137,12 +142,16 @@ Start server:
         });
 
 16\. Add new view / jade template for medlog.
-    Duplicate index.jade as medlog.jade, edit to add jade db fields #{log.Med} etc in a loop (see file.)
+
+ Duplicate index.jade as medlog.jade, edit to add jade db fields #{log.Med} etc in a loop (see file.)
+
 17\. Stop server. CNTL-C cmd window, npm start.
-    If see error cannot find module ..../Relase/bson] .... and later js-bson: Failed to load C++ 
-    (follow Buecheler's tutorial instrustions at bottom.)
-18\. go localhost:3000/medlog
-### Setup Post
+
+If see error cannot find module ..../Relase/bson] .... and later js-bson: Failed to load C++ 
+(follow Buecheler's tutorial instrustions at bottom.)
+
+18\. goto: ```localhost:3000/medlog```
+## Setup Post
 19\. Create Data Input... /routes/index.js  add a router get for addmed
 
         /* GET Add (New) med page. */
@@ -151,45 +160,57 @@ Start server:
         }); 
 
 20\. Create Jade Template in views/addmed.jade
+
 21\. Add new route to index.js for the Add to DB fucntion, recieve POST / addmed
-    This is detailed to see doc at /* POST TO ADD NEW MED SERVICE */
+
+This is detailed to see doc at /* POST TO ADD NEW MED SERVICE */
+
 22\. Stop/Restart npm start
+
 ---The end of his tutorial.
 
 
 
-###================================================ 
-###-------------------THE END---------------------- 
-###================================================ 
-### Just notes and todo's below
 
+# -------------------THE END---------------------- 
+Just notes and todo's below
+# -------------------THE END---------------------- 
 
-### nodemon ...auto restart after edits to .js files of node... (err npm start)
+## nodemon ...auto restart after edits to .js files of node... (err npm start)
+
 npm install -g nodemon
 
 Edited package.json: node ==> nodemon
+
     "start": "node ./bin/www"
 
     also added:
+
     "prestart": "start mongod --dbpath C:\\Users\\marca\\Documents\\www\\2017.01_Node_CRUD\\nodetest1\\data",
-### WILL WANT TO REMOVE THIS FROM PRODUCTION I GUESS! 
+
+## WILL WANT TO REMOVE THIS FROM PRODUCTION I GUESS! 
 TODO:
 
 
-TODO:
-### Change to mdbLab Online?
-    just note change app.js instead of localhost use var db = monk('127.0.0.1:27017/nodetest1'); 
-    change to actual url... and search any other ref localhost
+#TODO:
+# Change to mdbLab Online?
+just note change app.js instead of localhost use var db = monk('127.0.0.1:27017/nodetest1'); 
+
+change to actual url... and search any other ref localhost
 
 
-### Data for medlogcollection
-i removed data from collection and added (fixed) it again with:  
-db.medlogcollection.remove({})
-   ... newstuff = [{
+
+# Data for medlogcollection
+i removed data from collection and added (fixed) it again with: 
+
+    db.medlogcollection.remove({})
+    
+```
+        newstuff = [{
         "Med" : "Tramadol",
         "Date" : "01/14/2017",
         "Time" : "02:17AM"
-},
+        },
 {
         "Med" : "Gabapentin",
         "Date" : "01/14/2017",
@@ -205,10 +226,14 @@ db.medlogcollection.remove({})
         "Date" : "01/14/2017",
         "Time" : "02:17AM"
 }]
-db.medlogcollection.insert(newstuff);
-db.medlogcollection.find().pretty()...     
+```
 
-### Fix for BSON module not found, ...
+
+        db.medlogcollection.insert(newstuff);
+        db.medlogcollection.find().pretty()
+
+
+# Fix for BSON module not found, ...
 Getting the following error?
 { [Error: Cannot find module '../build/Release/bson'] code: 'MODULE_NOT_FOUND' } js-bson: Failed to load c++ bson extension, using pure JS version
 
@@ -220,10 +245,15 @@ Install Python 2.7 (this will not impact existing Python 3.x installs).
 Delete your node_modules directory and everything in it.
 Re-run npm install in your nodetest1 directory from the command line.
 
+
 (I didn't install pytho, just changed ../build/release/bson to /bson in the nmp modules:  nodetest1/node_modules/bson/ext/index.js) 
-=========================================================================================================
+
+
+---
 RESTful fork
 Project changed to work from RESTful api, instead of exclusively through HTML templating, injecting the
 database data with JADE.
 Steps Below:
-=========================================================================================================
+
+---
+
