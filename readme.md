@@ -39,22 +39,22 @@ Uses express generator (npm install -g express-generator) to install a skeleton 
         install express 
         install express-generator npm install -g
 ### Generate App Scaffold, Test. [Node, Express, Jade, Mongo, Monk...]
-1. Generate Project: express nodetest1  (use any name for the project / folderName)
-2. Edit package.json, add lines for mogo and monk:
+1\. Generate Project: express nodetest1  (use any name for the project / folderName)
+2\. Edit package.json, add lines for mogo and monk:
 
         "mongodb": "^1.4.4",
         "monk": "^1.0.1"
 
-3.      cd nodetest1
+3\.      cd nodetest1
         npm install 
     (all the dependencies in package.json are installed)
 
-4.      mkdir data
+4\.      mkdir data
 
-5.      npm start  
+5\.      npm start  
     (This should start listening at //localhost:3000 as set in /bin/www (i think!))
 
-6. Some simple hello world nonsense.
+6\. Some simple hello world nonsense.
    Copy the routes/index.js Get route for '/' and change to /helloworld
    
             ###    /* GET hello World page. */                             
@@ -65,9 +65,9 @@ Uses express generator (npm install -g express-generator) to install a skeleton 
 
 ## Setting Up / Running Mongod and Mongo
 
-7.      mkdir data
+7\.      mkdir data
 
-8.      Run Mongod 
+8\.      Run Mongod 
 
 Start server:
       ```C:\Program Files\MongoDB\Server\3.4\bin```
@@ -80,12 +80,13 @@ Start server:
 [initandlisten] waiting for connections on port 27017  
 <---- Success if this is last line in console. (Server is running.)
 
-9. ```Run mongo``` (start mongo shell) [Note not really needed website, for tutorial/learning.]
+9\. ```Run mongo``` (start mongo shell) [Note not really needed website, for tutorial/learning.]
     In new CMD Consold - cd to mongo installation /bin:
     ```mongo``` 
 ## Create DB (type into mongo shell)
-10. ```use nodetest1```  //create db 
-11. ```db.usercollection.insert({ JSON KEY:VALUES for db row/document) })  //enter data
+
+10\. ```use nodetest1```  //create db 
+11\. ```db.usercollection.insert({ JSON KEY:VALUES for db row/document) })  //enter data
     db.usercollection.insert({ "Med" : "Tramadol", "Date" : "01/14/2017", "Time" : "01:33AM"})
     db.usercollection.insert({ "Med" : "Gabapentin", "Date" : "01/14/2017", "Time" : "01:33AM"})
     db.usercollection.insert({ "Med" : "Robenacoxib", "Date" : "01/14/2017", "Time" : "01:34AM"})
@@ -99,18 +100,18 @@ Start server:
     ```
 
 ## [I'm breaking from the username/email from the tutorial here.]
-12. List collection data in console:
+12\. List collection data in console:
 
 ```db.usercollection.find().pretty() //.pretty() method gives us linebreaks```
 ##  HOOK MONGO UP TO NODE
-13. Add connection info to app.js:
+13\. Add connection info to app.js:
 
         // New Code   
         var mongo = require('mongodb');
         var monk = require('monk');
         var db = monk('localhost:27017/nodetest1');
         
-14. Add db to router (insert above the '/' route lines as shown below:)
+14\. Add db to router (insert above the '/' route lines as shown below:)
     [adding db to the route and thus every HTTP req is not best, but quick / dirty method!]
     
         // Make our db accessible to our router
@@ -122,7 +123,7 @@ Start server:
         app.use('/', index);  //Must be inserted before this
 
 ### Display Data 
-15. Add new route to index.js ; specifies url for collection, and db.get of collection, req.
+15\. Add new route to index.js ; specifies url for collection, and db.get of collection, req.
    
         /* GET medlog page. */
         router.get('/medlog', function(req, res) {
@@ -135,24 +136,24 @@ Start server:
             });
         });
 
-16. Add new view / jade template for medlog.
+16\. Add new view / jade template for medlog.
     Duplicate index.jade as medlog.jade, edit to add jade db fields #{log.Med} etc in a loop (see file.)
-17. Stop server. CNTL-C cmd window, npm start.
+17\. Stop server. CNTL-C cmd window, npm start.
     If see error cannot find module ..../Relase/bson] .... and later js-bson: Failed to load C++ 
     (follow Buecheler's tutorial instrustions at bottom.)
-18. go localhost:3000/medlog
+18\. go localhost:3000/medlog
 ### Setup Post
-19. Create Data Input... /routes/index.js  add a router get for addmed
+19\. Create Data Input... /routes/index.js  add a router get for addmed
 
         /* GET Add (New) med page. */
         router.get('/addmed', function(req, res) {
             res.render('addmed', { title: 'Add med' });
         }); 
 
-20. Create Jade Template in views/addmed.jade
-21. Add new route to index.js for the Add to DB fucntion, recieve POST / addmed
+20\. Create Jade Template in views/addmed.jade
+21\. Add new route to index.js for the Add to DB fucntion, recieve POST / addmed
     This is detailed to see doc at /* POST TO ADD NEW MED SERVICE */
-22. Stop/Restart npm start
+22\. Stop/Restart npm start
 ---The end of his tutorial.
 
 
