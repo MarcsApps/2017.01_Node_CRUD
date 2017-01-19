@@ -1,3 +1,5 @@
+### Scroll to start Of RESTFUL API Steps below, marked by ===REST=== blocks.
+
 ### Steps Taken in Project, from Scratch to create and mod a default express-generator project.
 ### Created 1/2017 but based on 2015updated2013 tutorial so uses some older versions. 
 
