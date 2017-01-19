@@ -1,13 +1,19 @@
-extends layout
+extends layout.jade
 
 block content
     h1.
         Med Log
-    ul
+    ul.list-group
         each log, i in medlog
             li #{i}  #{log.Med}    #{log.Date}    #{log.Time}
 
-    table
+    table.table.table-bordered.table-hover.table-striped
+        thead.thead-inverse
+        tr.bg-primary
+            th #
+            th Med
+            th Date    
+            th Time 
         tbody
             each logi, i in medlog
                 tr

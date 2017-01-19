@@ -1,0 +1,68 @@
+body {
+
+  width: 90%;
+  margin: 10px;
+  background: white;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+
+  height: 150px;
+  background: green;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+header img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+header h1  {
+  float: right;
+  position: absolute;
+  top: 25px;
+  left: 200px;
+  font-size: 3em;
+}
+nav {
+  margin-bottom: 1em;
+
+}
+
+nav table{
+  width: 100%;
+}
+
+nav td{
+  text-align: center;
+  border-left: solid thin black;
+  border-collapse: collapse;
+}
+
+aside {
+  float: left;
+  width: 30%;
+}
+
+article {
+  position: relative;
+  float: right;
+  width: 60%;
+}
+.box1 {
+
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+footer {
+  clear: both; 
+  height:  1.7em;
+  background: black;
+  color: white;
+  text-align: center;
+}

@@ -15,12 +15,12 @@ router.get('/helloworld', function(req, res, next) {
 });
 
 /* GET medlog page. */         //---------------   loads medlogcollection into docs variable ! 
-router.get('/medlog', function(req, res) {      // find all in collection, The GET setup
+router.get('/medlog', function (req, res) {      // find all in collection, The GET setup
     var db = req.db;
     var collection = db.get('medlogcollection');
-    collection.find({},{},function(e,docs){
+    collection.find({}, {}, function (e, docs) {
         res.render('medlog', {
-            "medlog" : docs
+            "medlog": docs
         });
     });
 });

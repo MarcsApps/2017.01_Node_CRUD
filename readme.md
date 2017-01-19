@@ -2,7 +2,11 @@
 ### Created 1/2017 but based on 2015updated2013 tutorial so uses some older versions. 
 
 ### Shortcuts for finished: RUN THESE TWO LINES THEN GO TO WEB ADDR>
-### Run mongo from C:\Program Files\MongoDB\Server\3.4\bin run npm start in nodetest1
+### Run mongo from .... run npm start in nodetest1
+// added below to npm start, so it runs both mongo and express server concurrently in own cmd windows, in windows
+//  (set in package.json start)
+//FIXME:  Start script in npm start may not work on non-windows/production...not sure testuser2
+        cd C:\Program Files\MongoDB\Server\3.4\bin 
         mongod --dbpath C:\Users\marca\Documents\www\2017.01_Node_CRUD\nodetest1\data
         npm start
 Based first on Christopher Buecheler's tutorial here: http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
@@ -118,10 +122,10 @@ npm install -g nodemon
 Edited package.json: node ==> nodemon
     "start": "node ./bin/www"
 ### WILL WANT TO REMOVE THIS FROM PRODUCTION I GUESS! 
-TODO
+TODO:
 
 
-TODO 
+TODO:
 ### Change to mdbLab Online?
     just note change app.js instead of localhost use var db = monk('127.0.0.1:27017/nodetest1'); 
     change to actual url... and search any other ref localhost
