@@ -23,24 +23,24 @@ Uses express generator (npm install -g express-generator) to install a skeleton 
 
 Steps: -------------------------------------------------------------------------------------------------------
 ### Pre-requisites
-0. Pre-requisites: install node.js & npm.
+0. Pre-requisites: ...install node.js & npm.
                    install express 
-                   install express-generator npm install -g express-generator)   
+                   install express-generator npm install -g ...   
 ### Generate App Scaffold, Test. [Node, Express, Jade, Mongo, Monk...]
 1. Generate Project: express nodetest1  (use any name for the project / folderName)
 2. Edit package.json, add lines for mogo and monk:
-        "mongodb": "^1.4.4",
-        "monk": "^1.0.1"
+        ..."mongodb": "^1.4.4",
+        "monk": "^1.0.1"...
 3. cd nodetest1
 3. npm install (all the dependencies in package.json are installed)
 4. mkdir data
 5. npm start  (This should start listening at //localhost:3000 as set in /bin/www (i think!))
 6. Some simple hello world nonsense.
    Copy the routes/index.js Get route for '/' and change to /helloworld
-     ###    /* GET hello World page. */                             
+     ...###    /* GET hello World page. */                             
             router.get('/helloworld', function(req, res, next) {
             res.render('helloworld', { title: 'Hello, World!' });
-            });
+            });...
 
     Added View helloworld.jade to /views (cloned index.jade, text hello world edit.)
 ### Setting Up / Running Mongod and Mongo
@@ -55,11 +55,11 @@ Steps: -------------------------------------------------------------------------
     mongo 
 ### Create DB (type into mongo shell)
 10. use nodetest1  //create db 
-11. db.usercollection.insert({ JSON KEY:VALUES for db row/document) })  //enter data
+11. ...db.usercollection.insert({ JSON KEY:VALUES for db row/document) })  //enter data
     db.usercollection.insert({ "Med" : "Tramadol", "Date" : "01/14/2017", "Time" : "01:33AM"})
     db.usercollection.insert({ "Med" : "Gabapentin", "Date" : "01/14/2017", "Time" : "01:33AM"})
     db.usercollection.insert({ "Med" : "Robenacoxib", "Date" : "01/14/2017", "Time" : "01:34AM"})
-    db.usercollection.insert({ "Med" : "Meloxicam", "Date" : "01/14/2017", "Time" : "01:34AM"})
+    db.usercollection.insert({ "Med" : "Meloxicam", "Date" : "01/14/2017", "Time" : "01:34AM"})...
 
     or combine ; or use somehting like this...
     newstuff = [{ "username" : "testuser2", "email" : "testuser2@testdomain.com" },
