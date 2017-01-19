@@ -46,7 +46,7 @@ Uses express generator (npm install -g express-generator) to install a skeleton 
         "monk": "^1.0.1"
 
 3.      cd nodetest1
-3.      npm install 
+        npm install 
     (all the dependencies in package.json are installed)
 4.      mkdir data
 5.      npm start  
