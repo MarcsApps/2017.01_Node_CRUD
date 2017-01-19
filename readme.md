@@ -19,7 +19,7 @@ Uses express generator (npm install -g express-generator) to install a skeleton 
 
 (+ files added manaully to package.json before nmp install.  Also using old versions to comply with 2013 tutorial in begining.)
 
-Steps:
+Steps: -------------------------------------------------------------------------------------------------------
 ### Pre-requisites
 0. Pre-requisites: install node.js & npm.
                    install express 
@@ -113,7 +113,10 @@ Steps:
 
 
 
-
+###=================================================================================
+###-------------------THE END-------------------------------------------------------
+###=================================================================================
+### Just notes and todo's below
 
 
 ### nodemon ...auto restart after edits to .js files of node... (err npm start)
@@ -121,6 +124,9 @@ npm install -g nodemon
 
 Edited package.json: node ==> nodemon
     "start": "node ./bin/www"
+
+    also added:
+    "prestart": "start mongod --dbpath C:\\Users\\marca\\Documents\\www\\2017.01_Node_CRUD\\nodetest1\\data",
 ### WILL WANT TO REMOVE THIS FROM PRODUCTION I GUESS! 
 TODO:
 
@@ -168,3 +174,11 @@ If you want to get rid of the error, follow these steps:
 Install Python 2.7 (this will not impact existing Python 3.x installs).
 Delete your node_modules directory and everything in it.
 Re-run npm install in your nodetest1 directory from the command line.
+
+(I didn't install pytho, just changed ../build/release/bson to /bson in the nmp modules:  nodetest1/node_modules/bson/ext/index.js) 
+=========================================================================================================
+RESTful fork
+Project changed to work from RESTful api, instead of exclusively through HTML templating, injecting the
+database data with JADE.
+Steps Below:
+=========================================================================================================
