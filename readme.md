@@ -88,6 +88,7 @@ Start server:
 10\. ```use nodetest1```  //create db 
 
 11\. Enter this in to the db:
+
  ```db.usercollection.insert({ JSON KEY:VALUES for db row/document) })  //enter data
     db.usercollection.insert({ "Med" : "Tramadol", "Date" : "01/14/2017", "Time" : "01:33AM"})
     db.usercollection.insert({ "Med" : "Gabapentin", "Date" : "01/14/2017", "Time" : "01:33AM"})
