@@ -48,6 +48,7 @@ Uses express generator (npm install -g express-generator) to install a skeleton 
 3.      cd nodetest1
         npm install 
     (all the dependencies in package.json are installed)
+
 4.      mkdir data
 5.      npm start  
     (This should start listening at //localhost:3000 as set in /bin/www (i think!))
@@ -60,17 +61,14 @@ Uses express generator (npm install -g express-generator) to install a skeleton 
             });
     Added View helloworld.jade to /views (cloned index.jade, text hello world edit.)
 
-
 ## Setting Up / Running Mongod and Mongo
 7.      mkdir data
 8.      Run Mongod 
 Start server:
       ```C:\Program Files\MongoDB\Server\3.4\bin```
   
-
  (or wherever MongoDB is installed in windows.)
 ```mongod --dbpath C:\Users\marca\Documents\www\2017.01_Node_CRUD\nodetest1\data```
-
 
 [Will see intial setup if first run.] 
 
