@@ -9,7 +9,7 @@
 // added below to npm start, so it runs both mongo and express server concurrently in own cmd windows, in windows
 //  (set in package.json start)
 //FIXME:  Start script in npm start may not work on non-windows/production...not sure testuser2
-...
+        ...
         cd C:\Program Files\MongoDB\Server\3.4\bin 
         mongod --dbpath C:\Users\marca\Documents\www\2017.01_Node_CRUD\nodetest1\data
         npm start
@@ -110,7 +110,8 @@ Steps: -------------------------------------------------------------------------
 16. Add new view / jade template for medlog.
     Duplicate index.jade as medlog.jade, edit to add jade db fields #{log.Med} etc in a loop (see file.)
 17. Stop server. CNTL-C cmd window, npm start.
-    If see error cannot find module ..../Relase/bson] .... and later js-bson: Failed to load C++ (follow Buecheler's tutorial instrustions at bottom.)
+    If see error cannot find module ..../Relase/bson] .... and later js-bson: Failed to load C++ 
+    (follow Buecheler's tutorial instrustions at bottom.)
 18. go localhost:3000/medlog
 ### Setup Post
 19. Create Data Input... /routes/index.js  add a router get for addmed
@@ -126,9 +127,9 @@ Steps: -------------------------------------------------------------------------
 
 
 
-###=================================================================================
-###-------------------THE END-------------------------------------------------------
-###=================================================================================
+###================================================ 
+###-------------------THE END---------------------- 
+###================================================ 
 ### Just notes and todo's below
 
 
@@ -153,7 +154,7 @@ TODO:
 ### Data for medlogcollection
 i removed data from collection and added (fixed) it again with:  
 db.medlogcollection.remove({})
-    newstuff = [{
+   ... newstuff = [{
         "Med" : "Tramadol",
         "Date" : "01/14/2017",
         "Time" : "02:17AM"
@@ -174,7 +175,7 @@ db.medlogcollection.remove({})
         "Time" : "02:17AM"
 }]
 db.medlogcollection.insert(newstuff);
-db.medlogcollection.find().pretty()     
+db.medlogcollection.find().pretty()...     
 
 ### Fix for BSON module not found, ...
 Getting the following error?
